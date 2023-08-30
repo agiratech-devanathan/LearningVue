@@ -8,6 +8,12 @@
 <!-- Binding HTML content into Html template using V-html attributes -->
 <div v-html="channel"></div>
 <div v-html="hack"></div>
+<!-- binding attributes  -->
+<h1 v-bind:id="headingId">Heading</h1>
+
+<!-- binding true or false attributes -->
+<button v-bind:disabled="isDisabled">Bind</button>
+
 </template>
 //Logic template
 <script>
@@ -20,6 +26,8 @@ return{
   name:'Devas',
   channel:'<b>Dj Code</b>',
   hack:`<a href="#' onclick="alert('you have been hacked')">Win a prize</a>`,
+  headingId:'heading',
+  isDisabled:true
 }
  }
 }
