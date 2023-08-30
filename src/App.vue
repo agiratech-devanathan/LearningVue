@@ -3,7 +3,11 @@
 <!-- binding text into html template using double curly brackets -->
 <div>{{greet}} {{name}}</div>
 <!-- Another way of binding the text -->
-<div v-text="channel"></div>
+<!-- it wont't work foe html binding -->
+<div v-text="channel"></div> 
+<!-- Binding HTML content into Html template using V-html attributes -->
+<div v-html="channel"></div>
+<div v-html="hack"></div>
 </template>
 //Logic template
 <script>
@@ -14,7 +18,8 @@ export default {
 return{
   greet:'Hello',
   name:'Devas',
-  channel:'Dj Code'
+  channel:'<b>Dj Code</b>',
+  hack:`<a href="#' onclick="alert('you have been hacked')">Win a prize</a>`,
 }
  }
 }
