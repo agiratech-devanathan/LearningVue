@@ -1,5 +1,6 @@
 // UI Template 
 <template>
+
 <h1 v-bind:id="headingId">Heading</h1>
 
 <!-- binding true or false attributes -->
@@ -21,6 +22,16 @@
   promoted:isPromoted,new:!isSoldOut,'sold-out':isSoldOut
 }">Object conditionally Movie</h1>
 
+<h2 v-bind:style="{
+  color:highlighter,
+  'font-size':headerSize+'px',
+  padding:'20px'
+}">Inline style</h2>
+
+<h2 v-bind:style='headerStyleObject'>Style Object</h2>
+
+<div v-bind:style="[baseStyleObject,successStyleObject]">Success Style</div>
+
 </template>
 //Logic template
 <script>
@@ -33,7 +44,24 @@ return{
   headingId:'heading',
   isDisabled:true,
   isPromoted:true,
-  isSoldOut:true
+  isSoldOut:true,
+  highlighter:"orange",
+  headerSize:80,
+  headerStyleObject:{
+    color:"purple",
+    'font-size':"100px",
+    padding:'20px'
+  },
+  baseStyleObject:{
+    fontSize:"40px",
+    padding:"10px"
+  },
+
+  successStyleObject:{
+    color:'green',
+    backgroundColor:'yellow',
+    border:'2px solid green'
+  }
 }
  }
 }
