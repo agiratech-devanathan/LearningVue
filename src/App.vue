@@ -1,19 +1,25 @@
+// UI Template 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<!-- binding text into html template using double curly brackets -->
+<div>{{greet}} {{name}}</div>
+<!-- Another way of binding the text -->
+<div v-text="channel"></div>
 </template>
-
+//Logic template
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+ data(){
+return{
+  greet:'Hello',
+  name:'Devas',
+  channel:'Dj Code'
+}
+ }
 }
 </script>
-
+// Style Template
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
