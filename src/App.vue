@@ -1,18 +1,25 @@
 // UI Template 
 <template>
-<!-- binding text into html template using double curly brackets -->
-<div>{{greet}} {{name}}</div>
-<!-- Another way of binding the text -->
-<!-- it wont't work foe html binding -->
-<div v-text="channel"></div> 
-<!-- Binding HTML content into Html template using V-html attributes -->
-<div v-html="channel"></div>
-<div v-html="hack"></div>
-<!-- binding attributes  -->
 <h1 v-bind:id="headingId">Heading</h1>
 
 <!-- binding true or false attributes -->
 <button v-bind:disabled="isDisabled">Bind</button>
+<!-- binding Class attribute -->
+<h3 class=underline>UnderLine Text</h3>
+
+<h2 class="underline" v-bind:class="status">Status</h2>
+
+<h2 v-bind:class="isPromoted && 'promoted'">Promoted Movie</h2>
+
+<h2 v-bind:class="isSoldOut ? 'sold-out':'new'">SoldOut Movie</h2>
+
+<h2 v-bind:class="['new','promoted']">New promoted Movie </h2>
+
+<h1 v-bind:class="[isPromoted && 'promoted',isSoldOut ? 'sold-out':'new']">Array Class conditionally</h1>
+
+<h1 v-bind:class="{
+  promoted:isPromoted,new:!isSoldOut,'sold-out':isSoldOut
+}">Object conditionally Movie</h1>
 
 </template>
 //Logic template
@@ -22,12 +29,11 @@ export default {
   name: 'App',
  data(){
 return{
-  greet:'Hello',
-  name:'Devas',
-  channel:'<b>Dj Code</b>',
-  hack:`<a href="#' onclick="alert('you have been hacked')">Win a prize</a>`,
+  status:'success',
   headingId:'heading',
-  isDisabled:true
+  isDisabled:true,
+  isPromoted:true,
+  isSoldOut:true
 }
  }
 }
@@ -41,5 +47,21 @@ return{
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.underline{
+  text-decoration: underline  ;
+}
+
+.promoted{
+  font-style: italic;
+}
+
+.new{
+  color: greenyellow;
+}
+
+.sold-out{
+color: red;
 }
 </style>
